@@ -6,11 +6,27 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 //This import lets us join file paths easily
 const path = require("path");
+//This import lets us work with the firebase sdk
+const { initializeApp } = require("firebase/app");
+const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
 
 //Starts our server and listens on port 3000
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
+
+//Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyA1eEw3r1txckvPHBuKZ7XT10TBGLWxS7w",
+  authDomain: "altmirror-3c3fa.firebaseapp.com",
+  projectId: "altmirror-3c3fa",
+  storageBucket: "altmirror-3c3fa.appspot.com",
+  messagingSenderId: "530870603047",
+  appId: "1:530870603047:web:dcb18ecd50ec7bff48ad02",
+  measurementId: "G-LM2P7YD5RK",
+};
+//Start with firebase config
+const firebaseApp = initializeApp(firebaseConfig);
 
 //Makes the entire public folder
 app.use(express.static(__dirname + "/public"));
@@ -25,32 +41,19 @@ app.use(bodyParser.json());
 
 //Our authentication fetch request
 app.post("/authentication", (req, res) => {
-  //Load the authenticated users JSON file into an object variable
-  const authenticatedUsers = JSON.parse(
-    fs.readFileSync(
-      path.join(
-        __dirname,
-        "/controller/authentication/authenticated_users.json"
-      )
-    )
-  );
-
   //Load the sent username and password into variables
   const clientUsername = req.body.username;
   const clientPassword = req.body.password;
 
-  //Loop through the authenticated users to see if any username and password matches
-  let authenticated = false;
-  for (const user of authenticatedUsers.users) {
-    if (clientUsername === user.username && clientPassword === user.password) {
-      authenticated = true;
-    }
-
-    //Check to see if authenticated and send appropriate response
-    if (authenticated) {
+  //Send username and password to firebase
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, clientUsername, clientPassword)
+    .then(() => {
+      console.log("Authenticated with firebase");
       return res.status(200).json({ authenticated: "yes" });
-    } else {
+    })
+    .catch((error) => {
+      console.log(error.message);
       return res.status(401).json({ authenticated: "no" });
-    }
-  }
+    });
 });
