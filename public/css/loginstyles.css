@@ -80,6 +80,7 @@ body {
   border-bottom-left-radius: 7px;
 }
 .login-icon {
+  pointer-events: none;
   width: 15px;
   height: 15px;
 }
@@ -119,4 +120,6 @@ body {
 #module-container img {
   width: 75vw;
   height: 100vh;
+  pointer-events: none;
+  user-select: none;
 }
