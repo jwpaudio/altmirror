@@ -18,7 +18,7 @@ submitButton.addEventListener("click", (e) => {
   //Check to see if inputs are empty and if they are,
   //display error message
   if (!usernameInput.value || !passwordInput.value) {
-    serverResponseElement.innerText = "Invalid Username or Password";
+    serverResponseElement.innerText = "Please Enter a Username and Password";
     return;
   }
 
@@ -45,12 +45,12 @@ submitButton.addEventListener("click", (e) => {
       serverResponse = result;
       //Check to see if server response is no and if it is, reset elements
       //and display message
+      usernameInput.value = "";
+      passwordInput.value = "";
       if (serverResponse.authenticated === "no") {
         serverResponseElement.innerText = "Invalid Username or Password";
-        usernameInput.value = "";
-        passwordInput.value = "";
         //Else display success message
-      } else serverResponseElement.innerText = "Success";
+      } else window.location.assign("/login/success");
     })
     .catch((error) => {
       //Console any error during the fetch process

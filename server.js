@@ -16,6 +16,10 @@ app.listen(3000, () => {
 app.use(express.static(__dirname + "/public"));
 //Sends the user to the login html file when they use the /login url
 app.use("/login", express.static(__dirname + "/public/html/login/login.html"));
+app.use(
+  "/login/success",
+  express.static(__dirname + "/public/html/login/loginsuccess.html")
+);
 //Automatically parses any JSON sent to the server from any client
 app.use(bodyParser.json());
 

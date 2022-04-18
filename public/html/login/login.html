@@ -11,11 +11,20 @@
   <body>
     <div id="form-container">
       <form id="login-form">
-        <label for="username">Username: </label>
-        <input type="text" id="username-input" />
-        <label for="password">Password: </label>
-        <input type="password" id="password-input" />
-        <button id="login-submit-button">Log In</button>
+        <div class="input-container">
+          <div class="icon-container">
+            <img class="login-icon" src="../../assets/username-icon.svg" />
+          </div>
+          <input type="text" id="username-input" placeholder="Username" />
+        </div>
+        <div class="input-container">
+          <div class="icon-container">
+            <img src="../../assets/password-icon.svg" class="login-icon" />
+          </div>
+          <input type="password" id="password-input" placeholder="Password" />
+        </div>
+        <button id="login-submit-button">SIGN IN</button>
+        <span>Not a member? <a href="">Sign Up Now</a></span>
         <div id="server-response"></div>
       </form>
     </div>
