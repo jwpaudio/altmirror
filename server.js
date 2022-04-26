@@ -33,6 +33,10 @@ app.use(express.static(__dirname + "/public"));
 //Sends the user to the login html file when they use the /login url
 app.use("/login", express.static(__dirname + "/public/html/login/login.html"));
 app.use(
+  "/signup",
+  express.static(__dirname + "/public/html/login/signup.html")
+);
+app.use(
   "/login/success",
   express.static(__dirname + "/public/html/login/loginsuccess.html")
 );
