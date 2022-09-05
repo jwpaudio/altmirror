@@ -59,6 +59,12 @@ app.use(
   "/mirror",
   express.static(__dirname + "/public/html/mirror/mirror.html")
 );
+
+//Redirect home page to login for now
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
+
 //Automatically parses any JSON sent to the server from any client
 app.use(bodyParser.json());
 
