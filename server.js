@@ -9,11 +9,26 @@ const path = require("path");
 //This import lets us work with the firebase sdk
 const { initializeApp } = require("firebase/app");
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
+const mongoose = require("mongoose");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 //Starts our server and listens on port 3000
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
+
+//Database login
+mongoose
+  .connect(process.env.DATABASE_URL)
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((error) => {
+    console.log("Couldn't connect to the DB");
+    console.log(`Error: ${error}`);
+  });
 
 //Firebase config
 const firebaseConfig = {
@@ -39,6 +54,10 @@ app.use(
 app.use(
   "/login/success",
   express.static(__dirname + "/public/html/login/loginsuccess.html")
+);
+app.use(
+  "/mirror",
+  express.static(__dirname + "/public/html/mirror/mirror.html")
 );
 //Automatically parses any JSON sent to the server from any client
 app.use(bodyParser.json());
