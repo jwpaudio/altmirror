@@ -23,11 +23,11 @@ submitButton.addEventListener("click", (e) => {
   }
 
   //Add the user inputs to the form data object
-  formData.username = usernameInput.value;
+  formData.email = usernameInput.value;
   formData.password = passwordInput.value;
 
   //Call fetch and send username and password to server
-  fetch("/authentication", {
+  fetch("/auth/signin", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -48,7 +48,7 @@ submitButton.addEventListener("click", (e) => {
       usernameInput.value = "";
       passwordInput.value = "";
       if (serverResponse.authenticated === "no") {
-        serverResponseElement.innerText = "Invalid Username or Password";
+        serverResponseElement.innerText = "Invalid Email or Password";
         //Else display success message
       } else window.location.assign("/login/success");
     })

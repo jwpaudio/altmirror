@@ -16,7 +16,7 @@ body {
   justify-content: center;
   color: #616468;
 }
-#login-form {
+form {
   display: flex;
   height: 400px;
   flex-direction: column;
@@ -40,6 +40,19 @@ body {
   width: 18vw;
   min-width: 300px;
 }
+input {
+  width: 100%;
+  background: none;
+  padding: 10px;
+  background-color: #3a4149;
+  border-style: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  outline: none;
+  color: white;
+}
 #username-input {
   width: 100%;
   background: none;
@@ -49,10 +62,9 @@ body {
   border-style: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   outline: none;
-}
-#username-input:focus::placeholder {
-  color: transparent;
 }
 #password-input {
   width: 100%;
@@ -62,10 +74,12 @@ body {
   border-style: none;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   outline: none;
   color: white;
 }
-#password-input:focus::placeholder {
+input:focus::placeholder {
   color: transparent;
 }
 .icon-container {
@@ -84,7 +98,7 @@ body {
   width: 15px;
   height: 15px;
 }
-#login-submit-button {
+button {
   height: 50px;
   width: 100%;
   margin-top: 10px;
@@ -96,11 +110,11 @@ body {
   border-radius: 7px;
   color: #2c353a;
 }
-#login-submit-button:hover {
+button:hover {
   cursor: pointer;
   color: #60656b;
 }
-#login-submit-button:focus {
+button:focus {
   outline: none;
 }
 #form-container a {

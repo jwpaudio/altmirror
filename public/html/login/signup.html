@@ -4,9 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../js/signup.js" defer></script>
+    <script></script>
     <link rel="stylesheet" href="../../css/loginstyles.css" />
-    <title>Document</title>
+    <title>Signup</title>
   </head>
-  <body></body>
+  <body>
+    <div id="form-container">
+      <form id="signup-form">
+        <div class="input-container">
+          <input type="text" id="firstName-input" placeholder="First Name" />
+        </div>
+        <div class="input-container">
+          <input type="text" id="lastName-input" placeholder="Last Name" />
+        </div>
+        <div class="input-container">
+          <input type="email" id="emailCreate-input" placeholder="E-mail" />
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            id="passwordCreate-input"
+            placeholder="Password"
+          />
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            id="passwordAgain-input"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button id="signup-submit-button">SIGN UP</button>
+        <span><a href="/login">Back to Login</a></span>
+      </form>
+    </div>
+  </body>
 </html>

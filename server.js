@@ -8,7 +8,6 @@ const fs = require("fs");
 const path = require("path");
 //This import lets us work with the firebase sdk
 const { initializeApp } = require("firebase/app");
-const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
 const mongoose = require("mongoose");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -41,7 +40,7 @@ const firebaseConfig = {
   measurementId: "G-LM2P7YD5RK",
 };
 //Start with firebase config
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 //Makes the entire public folder
 app.use(express.static(__dirname + "/public"));
@@ -59,6 +58,10 @@ app.use(
   "/mirror",
   express.static(__dirname + "/public/html/mirror/mirror.html")
 );
+app.use(
+  "/forgotpass",
+  express.static(__dirname + "/public/html/login/ForgotPassword.html")
+);
 
 //Redirect home page to login for now
 app.get("/", (req, res) => {
@@ -68,21 +71,8 @@ app.get("/", (req, res) => {
 //Automatically parses any JSON sent to the server from any client
 app.use(bodyParser.json());
 
-//Our authentication fetch request
-app.post("/authentication", (req, res) => {
-  //Load the sent username and password into variables
-  const clientUsername = req.body.username;
-  const clientPassword = req.body.password;
+//Import routers
+const authRouter = require("./routes/auth");
 
-  //Send username and password to firebase
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, clientUsername, clientPassword)
-    .then(() => {
-      console.log("Authenticated with firebase");
-      return res.status(200).json({ authenticated: "yes" });
-    })
-    .catch((error) => {
-      console.log(error.message);
-      return res.status(401).json({ authenticated: "no" });
-    });
-});
+//Use routers
+app.use("/auth", authRouter);
