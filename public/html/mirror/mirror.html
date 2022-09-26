@@ -4,85 +4,122 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mirror</title>
+    <title>Sign In Success</title>
 
     <style>
-      @import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300&display=swap");
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300&display=swap');
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background-color: black;
-        font-family: "Montserrat", sans-serif;
-      }
-      h1 {
-        font-size: 4.4em;
-        font-weight: 1100;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(to left, #03a9f4, #c0fbff);
-        padding: 20px 40px;
-        width: 22%;
-        text-anchor: center;
-        position: relative;
-        margin-top: 1%;
-        margin-left: 1%;
-      }
-      h1:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(to left, #03a9f4, #c0fbff);
-        z-index: -1;
-        box-shadow: -5px 3px 14px #c0fbff, 5px -3px 14px #03a9f4;
-        animation: movement 4s ease infinite;
-      }
-      @keyframes movement {
-        50% {
-          box-shadow: -5px 3px 28px #c0fbff, 5px -3px 28px #03a9f4;
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
-      h1:after {
-        content: "";
-        position: absolute;
-        width: 98%;
-        height: 94%;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        top: 3%;
-        background-color: black;
-        z-index: -1;
-      }
+        body{
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1{
+            font-size: 4.4em;
+            font-weight: 1100;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to left, #03a9f4, #C0FBFF);
+            padding: 20px 40px;
+            width: 22%;
+            text-anchor: center;
+            position: relative;
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+        h1:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to left, #03a9f4, #C0FBFF);
+            z-index: -1;
+            box-shadow: -5px 3px 14px #C0FBFF, 5px -3px 14px #03a9f4;
+            animation: movement 4s ease infinite;
+        }
+        @keyframes movement {
+            50%{
+                box-shadow: -5px 3px 28px #C0FBFF, 5px -3px 28px #03a9f4;
+            }
+        }
+        h1:after{
+            content: '';
+            position: absolute;
+            width: 98%;
+            height: 94%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 3%;
+            background-color: black;
+            z-index: -1;
+        }
+        .alert {
+            padding: 20px;
+            background-color: black;
+            color: #C0FBFF;
+            text-align: center;
+            font-size: 4.4em;
+            font-weight: 1100;
+        }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover {
+            color: black;
+        }
+
     </style>
+
   </head>
 
   <body>
-    <h1 id="clockModule"></h1>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <script type="text/javascript">
+              currentTime=new Date();
+              if(currentTime.getHours()<12)
+              document.write("<b>Good Morning!! </b>");
+              else if(currentTime.getHours()<17)
+              document.write("<b>Good Afternoon!! </b>");
+              else 
+              document.write("<b>Good Evening!! </b>");
+      </script> 
+      </div>
+<h1 id="clockModule"></h1>
 
     <script src="https://code.jquerry.com/jquerry-3.4.1.min.js"></script>
     <script type="text/javascript">
-      function showTime() {
-        var clockModule = document.getElementById("clockModule");
-        var currentDate = new Date();
 
-        var hours = currentDate.getHours();
-        var minutes = currentDate.getMinutes();
+        function showTime() {
+            var clockModule = document.getElementById("clockModule");
+            var currentDate = new Date();
 
-        minutes = minutes < 10 ? `0${minutes}` : minutes;
+            var hours = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
 
-        clockModule.innerText = `${hours} : ${minutes}`;
+            minutes = minutes < 10 ? `0${minutes}` : minutes;
 
-        setTimeout(showTime, 1000);
-      }
+            clockModule.innerText = `${hours} : ${minutes}`;
 
-      showTime();
+            setTimeout(showTime, 1000);
+        }
+
+        showTime();
     </script>
+
   </body>
 </html>

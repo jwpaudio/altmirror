@@ -4,30 +4,33 @@ const formData = {};
 let serverResponse;
 
 //Get page elements
-const submitButton = document.getElementById("login-submit-button");
-const usernameInput = document.getElementById("username-input");
-const passwordInput = document.getElementById("password-input");
+const forgotEmailButton = document.getElementById("forgot-submit-button");
+const emailInput = document.getElementById("email-input");
 const serverResponseElement = document.getElementById("server-response");
 
 //Add event listener for submit button
-submitButton.addEventListener("click", (e) => {
+forgotEmailButton.addEventListener("click", (e) => {
   //If you let the event propogate up the DOM, it will cause the
   //default action in a form to occur which is to reload the page with a url query
   e.preventDefault();
 
   //Check to see if inputs are empty and if they are,
   //display error message
-  if (!usernameInput.value || !passwordInput.value) {
-    serverResponseElement.innerText = "Please Enter a Username and Password";
+  if (!emailInput.value) {
+    serverResponseElement.innerText = "Please enter your email";
+    return;
+  }
+  const emailRegex = /^.+@.+\..+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    serverResponseElement.innerText = "Please enter a valid email";
     return;
   }
 
   //Add the user inputs to the form data object
-  formData.email = usernameInput.value;
-  formData.password = passwordInput.value;
+  formData.email = emailInput.value;
 
   //Call fetch and send username and password to server
-  fetch("/auth/signin", {
+  fetch("/auth/forgotpass", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -38,19 +41,15 @@ submitButton.addEventListener("click", (e) => {
     //Wait for a response and parse JSON response
     .then((response) => response.json())
     .then((result) => {
-      //The server response object is being stored here in the serverResponse variable
-      //It is an object in the format {authenticated: "yes"} or {authenticated: "no"}
-      //You can write an if statement if(serverResponse.authenticated === "yes") to decide if you want
-      //to display an error or redirect
       serverResponse = result;
-      //Check to see if server response is no and if it is, reset elements
-      //and display message
-      usernameInput.value = "";
-      passwordInput.value = "";
-      if (serverResponse.authenticated === "no") {
-        serverResponseElement.innerText = "Invalid Email or Password";
+      emailInput.value = "";
+
+      if (serverResponse.emailSent === "no") {
+        serverResponseElement.innerText = "Bad request, please try again";
         //Else display success message
-      } else window.location.assign("/mirror");
+      } else {
+        serverResponseElement.innerText = "Password reset email sent";
+      }
     })
     .catch((error) => {
       //Console any error during the fetch process

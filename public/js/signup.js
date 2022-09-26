@@ -9,7 +9,6 @@ const emailInput = document.getElementById("emailCreate-input");
 const passwordInput = document.getElementById("passwordCreate-input");
 const passwordMatch = document.getElementById("passwordAgain-input");
 const serverResponseElement = document.getElementById("server-response");
-const matchMessageElement = document.getElementById("matchMessage");
 
 //Add listener for password match
 passwordInput.addEventListener("keyup", (e) => {
