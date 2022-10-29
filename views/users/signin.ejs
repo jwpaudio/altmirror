@@ -1,0 +1,30 @@
+<head>
+<link rel="stylesheet" href="/public/css/loginstyles.css" />
+<script src="/public/js/login.js" defer></script>
+<title>Sign In</title>
+</head>
+<body>
+    <div id="form-container">
+      <form id="login-form">
+        <div class="input-container">
+          <div class="icon-container">
+            <img class="login-icon" src="/public/assets/username-icon.svg" />
+          </div>
+          <input type="text" id="username-input" placeholder="Username" />
+        </div>
+        <div class="input-container">
+          <div class="icon-container">
+            <img src="/public/assets/password-icon.svg" class="login-icon" />
+          </div>
+          <input type="password" id="password-input" placeholder="Password" />
+        </div>
+        <button id="login-submit-button">SIGN IN</button>
+        <span>Not a member? <a href="/users/signup">Sign Up Now</a></span>
+        <br />
+        <span><a href="/users/forgotpass">Forgot password?</a></span>
+      </form>
+      <div id="server-response"><% if (locals.message) { %>
+       <%= locals.message %> 
+      <% } %></div>
+    </div>
+  </body>

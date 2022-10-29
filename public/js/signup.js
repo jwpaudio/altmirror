@@ -61,7 +61,7 @@ signupButton.addEventListener("click", (e) => {
   formData.password = passwordInput.value;
 
   //Call fetch and send username and password to server
-  fetch("/auth/signup", {
+  fetch("/users/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -76,10 +76,10 @@ signupButton.addEventListener("click", (e) => {
       emailInput.value = "";
       passwordInput.value = "";
       passwordMatch.value = "";
-      if (serverResponse.userCreated === "no") {
+      if (serverResponse.status === "fail") {
         serverResponseElement.innerText = "Bad request, please try again";
         //Else display success message
-      } else window.location.assign("/login");
+      } else window.location.assign("/users/signin");
     })
     .catch((error) => {
       //Console any error during the fetch process

@@ -1,0 +1,175 @@
+<link rel="stylesheet" href="/public/css/mainscreenstyles.css" />
+<script src="/public/js/mainScreen.js" defer></script>
+<title>Sign In Success</title>
+<title>Welcome!</title>
+<body>
+  <div id="userTagDiv">
+    <label id="userTopTag"><%= locals.email %></label>
+  </div>
+  <br>
+  <button id="goto-mirror-button" class="navigationButton">GO TO MIRROR</button>
+  <button onclick="revealAccountSettings()" id="account-settings-button" class="navigationButton">ACCOUNT</button>
+  <button onclick="revealMirrorSettings()" id="mirror-settings-button" class="navigationButton">SETTINGS</button>
+  <br>
+  <div class="accountSettingsHidden" id="accountSettingsDiv">
+      <label id="emailLabel">E-mail</label>
+      <label id="userEmailLabel"><%= locals.email %></label>
+      <br><br><br>
+      <input type="email" id="newEmailInput" placeholder="type new e-mail">
+      <button type="submit" class="changeButton" id="emailChangeButton">Change</button>
+      <br><br><br>
+      <label>Password</label>
+      <input type="password" id="accountCurrentPassword" placeholder="Current Pasword">
+      <br><br><br>
+      <input type="password" id="accountChangePassword" placeholder="New Pasword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$">
+      <button type="submit" class="changeButton" id="passwordChangeButton">Change</button>
+      <br><br><br>
+      <button type="submit" id="deleteAccountButton">Delete Account</button>
+  </div>
+  <div class="mirrorSettingsHidden" id="mirrorSettingsDiv">
+      <label for="module1">Module 1:</label>
+      <select name="module1" id="module1List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module1POS" id="module1Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module2">Module 2:</label>
+      <select name="module2" id="module2List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module2POS" id="module2Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module3">Module 3:</label>
+      <select name="module3" id="module3List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module3POS" id="module3Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module4">Module 4:</label>
+      <select name="module4" id="module4List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module4POS" id="module4Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module5">Module 5:</label>
+      <select name="module5" id="module5List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module5POS" id="module5Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module6">Module 6:</label>
+      <select name="module6" id="module6List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module6POS" id="module6Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module7">Module 7:</label>
+      <select name="module7" id="module7List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module7POS" id="module7Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+      <br><br>
+      <label for="module8">Module 8:</label>
+      <select name="module8" id="module8List">
+        <option value="" disabled selected>Select Module</option>
+        <option value="clock">Clock</option>
+        <option value="greeting">Greeting</option>
+      </select>
+      <select name="module8POS" id="module8Position">
+        <option value="" disabled selected>Module Position</option>
+        <option value="top-left">top-left</option>
+        <option value="mid-left">mid-left</option>
+        <option value="bottom-left">bottom-left</option>
+        <option value="top-center">top-center</option>
+        <option value="bottom-center">bottom-center</option>
+        <option value="top-right">top-right</option>
+        <option value="mid-right">mid-right</option>
+        <option value="bottom-right">bottom-right</option>
+      </select>
+  </div>
+  
+</body>

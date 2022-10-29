@@ -30,7 +30,7 @@ forgotEmailButton.addEventListener("click", (e) => {
   formData.email = emailInput.value;
 
   //Call fetch and send username and password to server
-  fetch("/auth/forgotpass", {
+  fetch("/users/forgotpass", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ forgotEmailButton.addEventListener("click", (e) => {
       serverResponse = result;
       emailInput.value = "";
 
-      if (serverResponse.emailSent === "no") {
+      if (serverResponse.status === "fail") {
         serverResponseElement.innerText = "Bad request, please try again";
         //Else display success message
       } else {

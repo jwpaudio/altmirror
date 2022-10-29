@@ -1,3 +1,5 @@
+//Check to see if user is already logged in and redirect
+
 //Create an object that will store the form data
 const formData = {};
 //Variable to store server response object
@@ -27,11 +29,12 @@ submitButton.addEventListener("click", (e) => {
   formData.password = passwordInput.value;
 
   //Call fetch and send username and password to server
-  fetch("/auth/signin", {
+  fetch("/users/signin", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "same-origin",
     //Convert the formData object to a JSON string and send in the body
     body: JSON.stringify(formData),
   })
@@ -47,10 +50,10 @@ submitButton.addEventListener("click", (e) => {
       //and display message
       usernameInput.value = "";
       passwordInput.value = "";
-      if (serverResponse.authenticated === "no") {
+      if (serverResponse.status === "fail") {
         serverResponseElement.innerText = "Invalid Email or Password";
         //Else display success message
-      } else window.location.assign("/mirror");
+      } else window.location.assign("/dashboard");
     })
     .catch((error) => {
       //Console any error during the fetch process

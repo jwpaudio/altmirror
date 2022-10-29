@@ -1,0 +1,118 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #2b3238;
+    margin: 0;
+    padding: 0;
+}
+#userTagDiv {
+  margin-bottom: 3%;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: #60656b;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  height: 40px;
+}
+label {
+    color: #cdfcf4;
+    font-size: xx-large;
+}
+select {
+  margin-left: 13%;
+  background-color: #3a4149;
+  font-size: 1.2em;
+  color: #cdfcf4;
+  border: none;
+  border-radius: 5px;
+}
+#accountSettingsDiv {
+    width: 40%;
+    margin: auto;
+    margin-top: 3%;
+}
+#mirrorSettingsDiv {
+  width: 40%;
+  margin: auto;
+  margin-top: 3%;
+}
+button {
+    background-color: #cdfcf4;
+    border: none;
+    border-radius: 7px;
+    color: #2c353a;
+}
+.changeButton{
+    height: 36px;
+    width: 17%;
+    margin-left: 1%;
+    font-weight: 550;
+    font-size: 1.2em;
+}
+.navigationButton {
+    height: 50px;
+    width: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 6%;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+#deleteAccountButton {
+    height: 36px;
+    width: 49%;
+    margin-left: 45%;
+    font-weight: 550;
+    font-size: 1.2em;
+    background-color: #931a50;
+    color: #cdfcf4;
+}
+button:hover {
+    cursor: pointer;
+    color: #60656b;
+}
+button:focus {
+    outline: none;
+}
+#deleteAccountButton:hover {
+    color: #2c353a;
+}
+.accountSettingsShow {
+   visibility: visible; 
+}
+.accountSettingsHidden {
+	display: none;
+	visibility: hidden;
+}
+.mirrorSettingsShow {
+    visibility: visible;
+}
+.mirrorSettingsHidden {
+	display: none;
+	visibility: hidden;
+}
+input {
+  background: none;
+  padding: 10px;
+  background-color: #3a4149;
+  border-style: none;
+  border-radius: 7px;
+  outline: none;
+  color: white;
+}
+#userEmailLabel {
+  margin-left: 30%;
+}
+#newEmailInput {
+  margin-left: 45%;
+}
+#accountCurrentPassword{
+  margin-left: 24.5%;
+}
+#accountChangePassword {
+  margin-left: 45%;
+}

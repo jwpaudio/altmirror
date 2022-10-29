@@ -2,7 +2,6 @@
 
 //Imports
 const mongoose = require("mongoose");
-const uuid = require("uuid");
 
 //Create user schema
 const userSchema = new mongoose.Schema({
@@ -15,11 +14,9 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     maxlength: 100,
   },
-  mirrorId: {
-    type: String,
-    required: true,
-    default: uuid.v4(),
-    immutable: true,
+  mirrorID: {
+    type: mongoose.Types.ObjectId,
+    ref: "Mirror",
   },
   createdDate: {
     type: Date,

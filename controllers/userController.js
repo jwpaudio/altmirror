@@ -8,6 +8,18 @@ const {
   sendPasswordResetEmail,
 } = require("firebase/auth");
 const User = require("../models/userModel");
+const mirrorController = require("../controllers/mirrorController");
+
+//Render user pages
+exports.getSignInpage = (req, res) => {
+  res.render("users/signin");
+};
+exports.getSignUpPage = (req, res) => {
+  res.render("users/signup");
+};
+exports.getForgotPassPage = (req, res) => {
+  res.render("users/forgotpass");
+};
 
 //Sign in method
 exports.signin = async (req, res) => {
@@ -24,15 +36,25 @@ exports.signin = async (req, res) => {
       clientPassword
     );
 
-    res.status(200).json({
-      status: "success",
-      message: {
-        email: firebaseResponse.user.email,
-        mirrorId: mongoUser.mirrorId,
-        token: firebaseResponse.user.stsTokenManager.accessToken,
-        refreshToken: firebaseResponse.user.stsTokenManager.refreshToken,
-      },
-    });
+    res
+      .cookie(
+        "access_token",
+        firebaseResponse.user.stsTokenManager.accessToken,
+        {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+        }
+      )
+      .status(200)
+      .json({
+        status: "success",
+        message: {
+          email: firebaseResponse.user.email,
+          mirrorId: mongoUser.mirrorId,
+          token: firebaseResponse.user.stsTokenManager.accessToken,
+          refreshToken: firebaseResponse.user.stsTokenManager.refreshToken,
+        },
+      });
   } catch (err) {
     res.status(404).json({
       status: "fail",
@@ -49,6 +71,13 @@ exports.signup = async (req, res) => {
     const firebaseAuth = getAuth();
 
     let newMongoUser = await User.create({ email: newEmail });
+
+    let newMongoMirrorID = await mirrorController.createMirror(newMongoUser.id);
+
+    newMongoUser = await User.findById(newMongoUser.id);
+
+    newMongoUser.mirrorID = newMongoMirrorID;
+    await newMongoUser.save();
 
     let newFirebaseUser = await createUserWithEmailAndPassword(
       firebaseAuth,
@@ -72,6 +101,11 @@ exports.signup = async (req, res) => {
       message: err,
     });
   }
+};
+
+//Signout method
+exports.signout = (req, res) => {
+  res.clearCookie("access_token").status(200).render("users/signin");
 };
 
 //Forgotpass method
@@ -98,13 +132,10 @@ exports.forgotpass = async (req, res) => {
 };
 
 //Require user login to view resource attached
-exports.loginRequired = () => {
+exports.loginRequired = (req, res, next) => {
   if (req.user) {
     next();
   } else {
-    return res.status(401).json({
-      status: "failed",
-      message: "Unauthorized user!",
-    });
+    return res.render("users/signin", { message: "Session Expired" });
   }
 };
