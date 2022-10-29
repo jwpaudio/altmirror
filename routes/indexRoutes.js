@@ -12,7 +12,6 @@ router
         .where("email")
         .equals(req.user.email)
         .populate("mirrorID");
-      console.log(thisUser);
       res.render("dashboard", thisUser);
     } catch (err) {
       console.log(err);

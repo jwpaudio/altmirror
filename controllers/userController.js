@@ -105,7 +105,7 @@ exports.signup = async (req, res) => {
 
 //Signout method
 exports.signout = (req, res) => {
-  res.clearCookie("access_token").status(200).render("users/signin");
+  res.clearCookie("access_token").status(200).redirect("/users/signin");
 };
 
 //Forgotpass method

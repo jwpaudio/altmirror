@@ -5,9 +5,10 @@
 <body>
   <div id="userTagDiv">
     <label id="userTopTag"><%= locals.email %></label>
+    <button class="signoutButton"><a id="signout" href="/users/signout">Sign Out</a></button>
   </div>
   <br>
-  <button id="goto-mirror-button" class="navigationButton">GO TO MIRROR</button>
+  <button id="goto-mirror-button" class="navigationButton"><a href="/mirror">GO TO MIRROR</a></button>
   <button onclick="revealAccountSettings()" id="account-settings-button" class="navigationButton">ACCOUNT</button>
   <button onclick="revealMirrorSettings()" id="mirror-settings-button" class="navigationButton">SETTINGS</button>
   <br>
@@ -15,8 +16,8 @@
       <label id="emailLabel">E-mail</label>
       <label id="userEmailLabel"><%= locals.email %></label>
       <br><br><br>
-      <input type="email" id="newEmailInput" placeholder="type new e-mail">
-      <button type="submit" class="changeButton" id="emailChangeButton">Change</button>
+      <!-- <input type="email" id="newEmailInput" placeholder="type new e-mail"> -->
+      <!-- <button type="submit" class="changeButton" id="emailChangeButton">Change</button> -->
       <br><br><br>
       <label>Password</label>
       <input type="password" id="accountCurrentPassword" placeholder="Current Pasword">
