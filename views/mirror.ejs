@@ -88,22 +88,98 @@
         color: rgb(18, 174, 18);
         font-size: 1.3em;
       }
-    </style>
+      #displayDate {
+        color: white;
+        border: solid white;
+        padding: 20px 40px;
+        width: 22%;
+        margin-top: 1%;
+        margin-left: 1%;
+        font-size: 1.3em;
+      }
+      
+.cal {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  color: #cdfcf4;
+  width: 520px;
+  margin: auto;
+  position: relative;
+  padding-top: 88px;
+  top: -44px;
+}
+.cal h2 {
+  position: absolute;
+  top: 0;
+  letter-spacing: -1px;
+  font-size: 1.2em;
+}
+.cal .year {
+  left: 288px;
+}
+.cal .month {
+  left: 360px;
+}
+.cal table {
+  width: 504px;
+  font-size: 56px;
+  border-spacing: 0;
+}
+.cal table thead {
+  vertical-align: top;
+}
+.cal table td {
+  width: 72px;
+  height: 44px;
+  line-height: 40px;
+  text-align: left;
+  border-left: 1px solid #000;
+  vertical-align: top;
+  transition: color 300ms ease-in;
+  letter-spacing: -5px;
+}
+@media (max-width: 660px) {
+  .cal {
+    width: 320px;
+  }
+  .cal h2 {
+    font-size: 1em;
+  }
+  .cal table {
+    width: 320px;
+    font-size: 35px;
+  }
+  .cal table td {
+    width: 46px;
+    height: 27px;
+    letter-spacing: -3px;
+  }
+  .cal .year {
+    left: 184px;
+  }
+  .cal .month {
+    left: 230px;
+  }
+}
+       </style>
+
+
+
   </head>
 
   <body onload="showDiagInfo()">
     <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <script type="text/javascript">
-          currentTime=new Date();
-          if(currentTime.getHours()<12)
-          document.write("<b>Good Morning!! </b>");
-          else if(currentTime.getHours()<17)
-          document.write("<b>Good Afternoon!! </b>");
-          else 
-          document.write("<b>Good Evening!! </b>");
-  </script> 
-  </div>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <script type="text/javascript">
+            currentTime=new Date();
+            if(currentTime.getHours()<12)
+            document.write("<b>Good Morning!! </b>");
+            else if(currentTime.getHours()<17)
+            document.write("<b>Good Afternoon!! </b>");
+            else 
+            document.write("<b>Good Evening!! </b>");
+      </script> 
+    </div>
     <h1 id="clockModule"></h1>
 
     <script src="https://code.jquerry.com/jquerry-3.4.1.min.js"></script>
@@ -288,4 +364,78 @@
       <br>
       <label id="cookieCheck"></label>
     </div>
-  </body>
+    <br><br><br>
+    <div class="cal">
+     <h2 class="year">2022</h2><h2 class="month">October</h2>
+      <table>
+        <thead>
+          <tr>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td >9</td>
+            <td >10</td>
+            <td >11</td>
+            <td >12</td>
+            <td >13</td>
+            <td >14</td>
+            <td >15</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>
+        </body>
