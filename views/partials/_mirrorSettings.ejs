@@ -1,0 +1,31 @@
+<button class="addModuleButton">Add Module</button>
+<br />
+<br />
+<% let moduleIndex = 1 %>
+<!-- Break -->
+<% locals.modules.forEach(element => { %>
+<label for="module<%= moduleIndex %>">Module <%= moduleIndex %>:</label>
+<select id="module<%= moduleIndex %>" name="module<%= moduleIndex %>">
+  <option value="" disabled >Module Type</option>
+  <option value="clock" <% if (element.moduleType == "Clock") { %>selected <% } %>>Clock</option>
+  <option value="greeting" <% if (element.moduleType == "Greeting") { %>selected <% } %>>Greeting</option>
+</select>
+<select
+  name="module<%= moduleIndex %>Position"
+  id="module<%= moduleIndex %>Position"
+>
+<option value="" disabled >Module Position</option>
+  <option value="1" <% if (element.position == 1) { %>selected <% } %> >top-left</option>
+  <option value="2" <% if (element.position == 2) { %>selected <% } %> >mid-left</option>
+  <option value="3" <% if (element.position == 3) { %>selected <% } %> >bottom-left</option>
+  <option value="4" <% if (element.position == 4) { %>selected <% } %> >top-center</option>
+  <option value="5" <% if (element.position == 5) { %>selected <% } %> >bottom-center</option>
+  <option value="6" <% if (element.position == 6) { %>selected <% } %> >top-right</option>
+  <option value="7" <% if (element.position == 7) { %>selected <% } %> >mid-right</option>
+  <option value="8" <% if (element.position == 8) { %>selected <% } %> >bottom-right</option>
+</select>
+<br />
+<br />
+<% moduleIndex = moduleIndex + 1 %> <% }); %>
+
+<button class="saveButton">Save</button>

@@ -7,19 +7,19 @@ const clockPropertiesSchema = new mongoose.Schema({
   digital: {
     type: Boolean,
     default: true,
-    required: true,
+    required: false,
   },
   military: {
     type: Boolean,
     default: false,
-    required: true,
+    required: false,
   },
   color: {
     type: String,
     minlength: 6,
     maxlength: 6,
     default: "ffffff",
-    required: true,
+    required: false,
   },
 });
 
@@ -29,12 +29,12 @@ const greetingPropertiesSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 6,
     default: "ffffff",
-    required: true,
+    required: false,
   },
   pulseAnimate: {
     type: Boolean,
     default: true,
-    required: true,
+    required: false,
   },
 });
 

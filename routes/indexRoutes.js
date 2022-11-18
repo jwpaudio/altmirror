@@ -1,26 +1,13 @@
 //Router for all the main pages
 const express = require("express");
 const userController = require("../controllers/userController");
-const User = require("../models/userModel");
+const viewsController = require("../controllers/viewsController");
 const router = express("router");
 
 router
   .route("/dashboard")
-  .get(userController.loginRequired, async (req, res) => {
-    try {
-      const thisUser = await User.findOne()
-        .where("email")
-        .equals(req.user.email)
-        .populate("mirrorID");
-      res.render("dashboard", thisUser);
-    } catch (err) {
-      console.log(err);
-      res.render("dashboard", { email: "No Account Found" });
-    }
-  });
+  .get(userController.loginRequired, viewsController.getDashboard);
 
-router.route("/mirror").get((req, res) => {
-  res.render("mirror");
-});
+router.route("/mirror").get(viewsController.getMirror);
 
 module.exports = router;
