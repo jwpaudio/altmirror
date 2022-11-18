@@ -10,21 +10,6 @@ const {
 const User = require("../models/userModel");
 const mirrorController = require("../controllers/mirrorController");
 
-//Render user pages
-exports.getSignInpage = (req, res) => {
-  if (req.user) {
-    res.redirect("/dashboard");
-  } else {
-    res.render("users/signin");
-  }
-};
-exports.getSignUpPage = (req, res) => {
-  res.render("users/signup");
-};
-exports.getForgotPassPage = (req, res) => {
-  res.render("users/forgotpass");
-};
-
 //Sign in method
 exports.signin = async (req, res) => {
   try {

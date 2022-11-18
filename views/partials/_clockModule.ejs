@@ -1,0 +1,13 @@
+<h1 id="<%= locals.clockName %>""></h1>
+    <script type="text/javascript">
+      const <%= locals.clockName %> = () => {
+        var clockModule = document.getElementById("<%= locals.clockName %>");
+        var currentDate = new Date();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        clockModule.innerText = `${hours} : ${minutes}`;
+        setTimeout(<%= locals.clockName %>, 1000)
+      }
+      <%= locals.clockName %>();
+    </script>

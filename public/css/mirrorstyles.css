@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+body {
+  background-color: black;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+#diagModule {
+  color: white;
+  border: solid white;
+  padding: 20px 40px;
+  width: 22%;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+#systemDiag {
+  color: rgb(18, 174, 18);
+  font-size: 1.3em;
+}
+#displayDate {
+  color: white;
+  border: solid white;
+  padding: 20px 40px;
+  width: 22%;
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 1.3em;
+}
+
+.cal {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  color: #cdfcf4;
+  width: 350px;
+  padding-top: 88px;
+}
+.cal h2 {
+  top: 0;
+  letter-spacing: -1px;
+  font-size: 1.2em;
+}
+.cal .year {
+  padding-bottom: 20px;
+}
+.cal .month {
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+.cal table {
+  width: 350px;
+  font-size: 56px;
+  border-spacing: 0;
+}
+.cal table thead {
+  vertical-align: top;
+}
+.cal table td {
+  width: 72px;
+  height: 44px;
+  line-height: 40px;
+  text-align: left;
+  border-left: 1px solid #000;
+  vertical-align: top;
+  transition: color 300ms ease-in;
+  letter-spacing: -5px;
+  font-size: 0.6em;
+}
+.cal .monthYear {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 660px) {
+  .cal {
+    width: 200px;
+  }
+  .cal h2 {
+    font-size: 1em;
+  }
+  .cal table {
+    width: 320px;
+    font-size: 35px;
+  }
+  .cal table td {
+    width: 146px;
+    height: 27px;
+    letter-spacing: -8px;
+    font-size: 0.5em;
+  }
+}
+h1 {
+  font-size: 5rem;
+  font-weight: 1100;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to left, #03a9f4, #c0fbff);
+  margin: 5px;
+  padding: 10px 20px;
+  width: 80%;
+  text-anchor: center;
+  position: relative;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to left, #03a9f4, #c0fbff);
+  z-index: -1;
+  box-shadow: -5px 3px 14px #c0fbff, 5px -3px 14px #03a9f4;
+  animation: movement 4s ease infinite;
+}
+@keyframes movement {
+  50% {
+    box-shadow: -5px 3px 28px #c0fbff, 5px -3px 28px #03a9f4;
+  }
+}
+h1:after {
+  content: "";
+  position: absolute;
+  width: 98%;
+  height: 94%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 3%;
+  background-color: black;
+  z-index: -1;
+}
+.greetingModule {
+  padding: 10px;
+  background-color: black;
+  color: #c0fbff;
+  font-size: 4em;
+  font-weight: 1100;
+  user-select: none;
+  font-family: "Montserrat", sans-serif;
+}
+/* Styles for the mirror blocks */
+.mirrorColumn {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 32vw;
+  height: 96vh;
+}
+.mirrorBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 1;
+  box-sizing: border-box;
+  width: 32vw;
+  height: 32vh;
+}
+#position1 {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#position2 {
+  justify-content: center;
+  align-items: flex-start;
+}
+#position3 {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+#position4 {
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+#position5 {
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+}
+#position6 {
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: right;
+}
+#position7 {
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+}
+#position8 {
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}

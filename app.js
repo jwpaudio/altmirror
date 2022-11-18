@@ -17,11 +17,6 @@ app.use("/public", express.static("public"));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-//Redirect home page to login for now
-app.get("/", (req, res) => {
-  res.redirect("/users/signin");
-});
-
 //Middleware to check for token
 app.use(async function (req, res, next) {
   if (req.cookies.access_token) {
