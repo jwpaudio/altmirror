@@ -12,7 +12,11 @@ const mirrorController = require("../controllers/mirrorController");
 
 //Render user pages
 exports.getSignInpage = (req, res) => {
-  res.render("users/signin");
+  if (req.user) {
+    res.redirect("/dashboard");
+  } else {
+    res.render("users/signin");
+  }
 };
 exports.getSignUpPage = (req, res) => {
   res.render("users/signup");
