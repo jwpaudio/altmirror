@@ -79,7 +79,7 @@ signupButton.addEventListener("click", (e) => {
       if (serverResponse.status === "fail") {
         serverResponseElement.innerText = "Bad request, please try again";
         //Else display success message
-      } else window.location.assign("/users/signin");
+      } else window.location.assign("/login");
     })
     .catch((error) => {
       //Console any error during the fetch process

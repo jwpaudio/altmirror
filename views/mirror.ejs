@@ -3,36 +3,58 @@
   <link rel="stylesheet" href="/public/css/mirrorstyles.css" />
 </head>
 <body>
+  <% const modulePositions = {} %> 
+  <% locals.modules.forEach(element => { %>
+    <% modulePositions[`position${element.position}`] = element.moduleType %>
+  <% }); %> 
+  <% console.log(modulePositions) %> 
   <div class="mirrorColumn">
     <div id="position1" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position1')) { %>
+        <%- include(`./partials/_${modulePositions.position1}Module.ejs`, {clockName: "position1Clock"}) %>
+        <% }; %>
     </div>
     <div id="position2" class="mirrorBlock">
-  
+      <% if (modulePositions.hasOwnProperty('position2')) { %>
+        <%- include(`./partials/_${modulePositions.position2}Module.ejs`, {clockName: "position2Clock"}) %>
+        <% }; %>
     </div>
     <div id="position3" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position3')) { %>
+        <%- include(`./partials/_${modulePositions.position3}Module.ejs`, {clockName: "position3Clock"}) %>
+        <% }; %>
     </div>
   </div>
   <div class="mirrorColumn">
     <div id="position4" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position4')) { %>
+        <%- include(`./partials/_${modulePositions.position4}Module.ejs`, {clockName: "position4Clock"}) %>
+        <% }; %>
     </div>
     <div id="middleBlank" class="mirrorBlock"></div>
     <div id="position5" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position5')) { %>
+        <%- include(`./partials/_${modulePositions.position5}Module.ejs`, {clockName: "position5Clock"}) %>
+        <% }; %>
     </div>
   </div>
   <div class="mirrorColumn">
     <div id="position6" class="mirrorBlock">
-       
+      <% if (modulePositions.hasOwnProperty('position6')) { %>
+        <%- include(`./partials/_${modulePositions.position6}Module.ejs`, {clockName: "position6Clock"}) %>
+        <% }; %>
     </div>
     <div id="position7" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position7')) { %>
+        <%- include(`./partials/_${modulePositions.position7}Module.ejs`, {clockName: "position7Clock"}) %>
+        <% }; %>
     </div>
     <div id="position8" class="mirrorBlock">
-      
+      <% if (modulePositions.hasOwnProperty('position8')) { %>
+        <%- include(`./partials/_${modulePositions.position8}Module.ejs`, {clockName: "position8Clock"}) %>
+        <% }; %>
     </div>
   </div>
+  
 
 </body>

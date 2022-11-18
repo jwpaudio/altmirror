@@ -33,10 +33,10 @@ exports.getDashboard = async (req, res) => {
       .equals(thisUser.mirrorID.id)
       .populate("moduleIDs");
     let theseModules = [
-      { moduleType: "Clock", position: 1 },
-      { moduleType: "Greeting", position: 2 },
-      { moduleType: "Clock", position: 5 },
-      { moduleType: "Greeting", position: 8 },
+      { moduleType: "clock", position: 1 },
+      { moduleType: "greeting", position: 2 },
+      { moduleType: "clock", position: 5 },
+      { moduleType: "greeting", position: 8 },
     ];
     // if (thisMirror.moduleIDs.length > 0) {
     //   theseModules = await Module.find()
@@ -66,10 +66,10 @@ exports.getMirror = async (req, res) => {
       .equals(thisUser.mirrorID.id)
       .populate("moduleIDs");
     let theseModules = [
-      { moduleType: "Clock", position: 1 },
-      { moduleType: "Greeting", position: 2 },
-      { moduleType: "Clock", position: 5 },
-      { moduleType: "Greeting", position: 8 },
+      { moduleType: "clock", position: 1 },
+      { moduleType: "greeting", position: 2 },
+      { moduleType: "clock", position: 5 },
+      { moduleType: "greeting", position: 8 },
     ];
     // if (thisMirror.moduleIDs.length > 0) {
     //   theseModules = await Module.find()
