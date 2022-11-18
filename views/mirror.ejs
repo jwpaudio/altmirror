@@ -7,7 +7,6 @@
   <% locals.modules.forEach(element => { %>
     <% modulePositions[`position${element.position}`] = element.moduleType %>
   <% }); %> 
-  <% console.log(modulePositions) %> 
   <div class="mirrorColumn">
     <div id="position1" class="mirrorBlock">
       <% if (modulePositions.hasOwnProperty('position1')) { %>
