@@ -100,7 +100,6 @@ body {
 h1 {
   font-size: 5rem;
   font-weight: 1100;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(to left, #03a9f4, #c0fbff);
   margin: 5px;
