@@ -84,6 +84,6 @@ exports.getMirror = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    return res.redirect("dashboard");
+    return res.redirect("/dashboard");
   }
 };

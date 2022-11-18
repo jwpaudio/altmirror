@@ -94,7 +94,7 @@ exports.signup = async (req, res) => {
 
 //Signout method
 exports.signout = (req, res) => {
-  res.clearCookie("access_token").status(200).redirect("/users/signin");
+  res.clearCookie("access_token").status(200).redirect("/login");
 };
 
 //Forgotpass method
@@ -125,6 +125,6 @@ exports.loginRequired = (req, res, next) => {
   if (req.user) {
     next();
   } else {
-    return res.render("users/signin", { message: "Session Expired" });
+    return res.render("login", { message: "Session Expired" });
   }
 };
