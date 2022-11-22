@@ -45,6 +45,7 @@ saveButton.addEventListener("click", (e) => {
       }
     })
     .catch((error) => {
+      serverResponseElement.innerText = "Save Failed, Try Again";
       console.log(error);
     });
 });
