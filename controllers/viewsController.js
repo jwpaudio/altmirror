@@ -17,6 +17,10 @@ exports.getSignUpPage = (req, res) => {
   res.render("signup");
 };
 
+exports.getSignUpSuccessPage = (req, res) => {
+  res.render("login", { message: "Signed Up! Please Log In" });
+};
+
 exports.getForgotPassPage = (req, res) => {
   res.render("forgotpass");
 };
@@ -27,9 +31,7 @@ exports.getDashboard = async (req, res) => {
       .where("email")
       .equals(req.user.email)
       .populate("mirrorID");
-    const thisMirror = await Mirror.findOne()
-      .where("id")
-      .equals(thisUser.mirrorID.id);
+    const thisMirror = thisUser.mirrorID;
     return res.render("dashboard", {
       user: thisUser,
       mirror: thisMirror,
@@ -46,9 +48,7 @@ exports.getMirror = async (req, res) => {
       .where("email")
       .equals(req.user.email)
       .populate("mirrorID");
-    const thisMirror = await Mirror.findOne()
-      .where("id")
-      .equals(thisUser.mirrorID.id);
+    const thisMirror = thisUser.mirrorID;
     return res.render("mirror", {
       user: thisUser,
       mirror: thisMirror,
@@ -61,7 +61,7 @@ exports.getMirror = async (req, res) => {
 
 exports.getMirrorWithID = async (req, res) => {
   try {
-    const thisMirror = await Mirror.findOne().where("id").equals(req.params.id);
+    const thisMirror = await Mirror.findById(req.params.id);
     return res.render("mirror", {
       mirror: thisMirror,
     });
