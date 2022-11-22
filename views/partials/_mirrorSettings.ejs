@@ -1,31 +1,101 @@
-<button class="addModuleButton">Add Module</button>
-<br />
-<br />
-<% let moduleIndex = 1 %>
-<!-- Break -->
-<% locals.modules.forEach(element => { %>
-<label for="module<%= moduleIndex %>">Module <%= moduleIndex %>:</label>
-<select id="module<%= moduleIndex %>" name="module<%= moduleIndex %>">
-  <option value="" disabled >Module Type</option>
-  <option value="clock" <% if (element.moduleType == "clock") { %>selected <% } %>>Clock</option>
-  <option value="greeting" <% if (element.moduleType == "greeting") { %>selected <% } %>>Greeting</option>
-</select>
-<select
-  name="module<%= moduleIndex %>Position"
-  id="module<%= moduleIndex %>Position"
->
-<option value="" disabled >Module Position</option>
-  <option value="1" <% if (element.position == 1) { %>selected <% } %> >top-left</option>
-  <option value="2" <% if (element.position == 2) { %>selected <% } %> >mid-left</option>
-  <option value="3" <% if (element.position == 3) { %>selected <% } %> >bottom-left</option>
-  <option value="4" <% if (element.position == 4) { %>selected <% } %> >top-center</option>
-  <option value="5" <% if (element.position == 5) { %>selected <% } %> >bottom-center</option>
-  <option value="6" <% if (element.position == 6) { %>selected <% } %> >top-right</option>
-  <option value="7" <% if (element.position == 7) { %>selected <% } %> >mid-right</option>
-  <option value="8" <% if (element.position == 8) { %>selected <% } %> >bottom-right</option>
-</select>
-<br />
-<br />
-<% moduleIndex = moduleIndex + 1 %> <% }); %>
-
-<button class="saveButton">Save</button>
+<link rel="stylesheet" href="/public/css/mirrorsettingstyles.css">
+<script src="/public/js/mirrorSettings.js" defer></script>
+<div id="mirrorSettingsBox">
+  <div id="mirrorSettingsCol1">
+    <div id="position1Settings" class="positionBlock">
+      <label for="position1Select">
+        Position 1
+      </label>
+      <br />
+      <select name="position1Select" id="position1Select">
+        <option value="none" <% if (locals.mirror.position1 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position1 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position1 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+    <div id="position2Settings" class="positionBlock">
+      <label for="position2Select">
+        Position 2
+      </label>
+      <br />
+      <select name="position2Select" id="position2Select">
+        <option value="none" <% if (locals.mirror.position2 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position2 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position2 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+    <div id="position3Settings" class="positionBlock">
+      <label for="position3Select">
+        Position 3
+      </label>
+      <br />
+      <select name="position3Select" id="position3Select">
+        <option value="none" <% if (locals.mirror.position3 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position3 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position3 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+  </div>
+  <div id="mirrorSettingsCol2">
+    <div id="position4Settings" class="positionBlock">
+      <label for="position4Select">
+        Position 4
+      </label>
+      <br />
+      <select name="position4Select" id="position4Select">
+        <option value="none" <% if (locals.mirror.position4 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position4 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position4 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+    <div id="positionBlankSettings" class="positionBlock"></div>
+    <div id="position5Settings" class="positionBlock">
+      <label for="position5Select">
+        Position 5
+      </label>
+      <br />
+      <select name="position5Select" id="position5Select">
+        <option value="none" <% if (locals.mirror.position5 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position5 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position5 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+  </div>
+  <div id="mirrorSettingsCol3">
+    <div id="position6Settings" class="positionBlock">
+      <label for="position6Select">
+        Position 6
+      </label>
+      <br />
+      <select name="position6Select" id="position6Select">
+        <option value="none" <% if (locals.mirror.position6 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position6 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position6 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+    <div id="position7Settings" class="positionBlock">
+      <label for="position7Select">
+        Position 7
+      </label>
+      <br />
+      <select name="position7Select" id="position7Select">
+        <option value="none" <% if (locals.mirror.position7 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position7 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position7 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+    <div id="position8Settings" class="positionBlock">
+      <label for="position8Select">
+        Position 8
+      </label>
+      <br />
+      <select name="position8Select" id="position8Select">
+        <option value="none" <% if (locals.mirror.position8 == "none") { %>selected <% } %>>None</option>
+        <option value="clock" <% if (locals.mirror.position8 == "clock") { %>selected <% } %>>Clock</option>
+        <option value="greeting" <% if (locals.mirror.position8 == "greeting") { %>selected <% } %>>Greeting</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div id="saveBar"><div id="saveServerMessage"></div><button id="saveButton">Save</button></div>
+</div>

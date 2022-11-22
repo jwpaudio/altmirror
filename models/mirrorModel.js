@@ -2,13 +2,8 @@
 
 //Imports
 const mongoose = require("mongoose");
-const Module = require("./moduleModel");
 
 const mirrorSchema = new mongoose.Schema({
-  moduleIDs: {
-    type: [mongoose.Types.ObjectId],
-    ref: "Module",
-  },
   userID: {
     type: mongoose.Types.ObjectId,
     ref: "User",
@@ -18,6 +13,46 @@ const mirrorSchema = new mongoose.Schema({
     type: Date,
     immutable: true,
     default: Date.now(),
+  },
+  position1: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position2: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position3: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position4: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position5: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position6: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position7: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
+  },
+  position8: {
+    type: String,
+    default: "none",
+    enum: ["clock", "greeting", "none"],
   },
 });
 

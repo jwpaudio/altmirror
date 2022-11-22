@@ -1,6 +1,7 @@
 html {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: #2b3238;
@@ -10,6 +11,7 @@ body {
 a {
   text-decoration: none;
   color: #2b3238;
+  user-select: none;
 }
 a:hover {
   color: #60656b;
@@ -31,6 +33,7 @@ a:hover {
 }
 #signout {
   text-decoration: none;
+  font-size: 1.1vw;
   color: #2b3238;
 }
 #signout:hover {
@@ -40,11 +43,12 @@ a:hover {
 label {
   color: #cdfcf4;
   font-size: xx-large;
+  user-select: none;
 }
 select {
   margin-left: 13%;
   background-color: #3a4149;
-  font-size: 1.2em;
+  font-size: 1vw;
   color: #cdfcf4;
   border: none;
   border-radius: 5px;
@@ -55,8 +59,6 @@ select {
   margin-top: 3%;
 }
 #mirrorSettingsDiv {
-  width: 40%;
-  margin: auto;
   margin-top: 3%;
 }
 button {
@@ -64,6 +66,7 @@ button {
   border: none;
   border-radius: 7px;
   color: #2c353a;
+  user-select: none;
 }
 .changeButton {
   height: 36px;
@@ -118,8 +121,8 @@ button:focus {
   visibility: visible;
 }
 .mirrorSettingsHidden {
-  display: none;
-  visibility: hidden;
+  display: block;
+  visibility: visible;
 }
 input {
   background: none;

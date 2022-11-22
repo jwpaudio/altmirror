@@ -38,9 +38,11 @@ app.use(async function (req, res, next) {
 //Import routers
 const indexRouter = require("./routes/indexRoutes");
 const userRouter = require("./routes/userRoutes");
+const mirrorRouter = require("./routes/mirrorRoutes");
 
 //Use routers
 app.use("/", indexRouter);
 app.use("/users", userRouter);
+app.use("/mirrors", mirrorRouter);
 
 module.exports = app;

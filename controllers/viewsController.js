@@ -1,7 +1,6 @@
 //Imports
 const User = require("../models/userModel");
 const Mirror = require("../models/mirrorModel");
-const Module = require("../models/moduleModel");
 
 exports.getIndexPage = (req, res) => {
   res.redirect("/login");
@@ -30,24 +29,10 @@ exports.getDashboard = async (req, res) => {
       .populate("mirrorID");
     const thisMirror = await Mirror.findOne()
       .where("id")
-      .equals(thisUser.mirrorID.id)
-      .populate("moduleIDs");
-    let theseModules = [
-      { moduleType: "clock", position: 1 },
-      { moduleType: "greeting", position: 2 },
-      { moduleType: "clock", position: 5 },
-      { moduleType: "greeting", position: 8 },
-    ];
-    // if (thisMirror.moduleIDs.length > 0) {
-    //   theseModules = await Module.find()
-    //     .where("mirrorID")
-    //     .equals(thisMirror.id)
-    //     .populate("propertiesID");
-    // }
+      .equals(thisUser.mirrorID.id);
     return res.render("dashboard", {
       user: thisUser,
       mirror: thisMirror,
-      modules: theseModules,
     });
   } catch (err) {
     console.log(err);
@@ -63,24 +48,22 @@ exports.getMirror = async (req, res) => {
       .populate("mirrorID");
     const thisMirror = await Mirror.findOne()
       .where("id")
-      .equals(thisUser.mirrorID.id)
-      .populate("moduleIDs");
-    let theseModules = [
-      { moduleType: "clock", position: 1 },
-      { moduleType: "greeting", position: 2 },
-      { moduleType: "clock", position: 5 },
-      { moduleType: "greeting", position: 8 },
-    ];
-    // if (thisMirror.moduleIDs.length > 0) {
-    //   theseModules = await Module.find()
-    //     .where("mirrorID")
-    //     .equals(thisMirror.id)
-    //     .populate("propertiesID");
-    // }
+      .equals(thisUser.mirrorID.id);
     return res.render("mirror", {
       user: thisUser,
       mirror: thisMirror,
-      modules: theseModules,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.redirect("/dashboard");
+  }
+};
+
+exports.getMirrorWithID = async (req, res) => {
+  try {
+    const thisMirror = await Mirror.findOne().where("id").equals(req.params.id);
+    return res.render("mirror", {
+      mirror: thisMirror,
     });
   } catch (err) {
     console.log(err);

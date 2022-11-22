@@ -1,0 +1,54 @@
+#mirrorSettingsBox {
+  display: flex;
+  flex-direction: row;
+  width: 55vw;
+  height: 55vh;
+  background-color: black;
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#mirrorSettingsCol1,
+#mirrorSettingsCol2,
+#mirrorSettingsCol3 {
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+}
+.positionBlock {
+  display: flex;
+  height: 33vh;
+  align-items: center;
+  justify-content: center;
+}
+label {
+  font-size: 1.4vw;
+}
+
+#saveBar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding-left: 27vw;
+  padding-right: 27vw;
+  margin-top: 30px;
+  width: 100vw;
+  justify-content: space-between;
+}
+#saveServerMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2vw;
+  color: #cdfcf4;
+  user-select: none;
+}
+
+#saveButton {
+  height: 2vw;
+  width: 7vw;
+  font-weight: 900;
+  font-size: 1vw;
+}
