@@ -54,7 +54,7 @@ select {
   border-radius: 5px;
 }
 #accountSettingsDiv {
-  width: 40%;
+  width: 35%;
   margin: auto;
   margin-top: 3%;
 }
@@ -93,8 +93,7 @@ button {
 }
 #deleteAccountButton {
   height: 36px;
-  width: 49%;
-  margin-left: 45%;
+  width: 350px;
   font-weight: 550;
   font-size: 1.2em;
   background-color: #931a50;
@@ -121,8 +120,8 @@ button:focus {
   visibility: visible;
 }
 .mirrorSettingsHidden {
-  display: block;
-  visibility: visible;
+  display: none;
+  visibility: hidden;
 }
 input {
   background: none;
@@ -133,15 +132,107 @@ input {
   outline: none;
   color: white;
 }
-#userEmailLabel {
-  margin-left: 30%;
+#userEmailBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#newEmailInput {
-  margin-left: 45%;
+#currentPasswordBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#accountCurrentPassword {
-  margin-left: 24.5%;
+#newPasswordBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
-#accountChangePassword {
-  margin-left: 45%;
+#changePassServerResponse {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+  font-weight: 900;
+  color: #cdfcf4;
+  user-select: none;
+}
+#changePassButtonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+#accountSettingsDiv input {
+  width: 250px;
+}
+#deleteAccountButtonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#deleteAccountConfirmationContainer {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+}
+#deleteAccountConfirmationBox {
+  position: relative;
+  background-color: black;
+  height: 45vh;
+  width: 35vw;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.2);
+  box-shadow: 0 10px 40px rgba(166, 173, 201, 0.15);
+  border-radius: 20px;
+}
+#deleteAccountConfirmationTextContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 2vw;
+}
+#deleteAccountConfirmationButtonContainer {
+  display: flex;
+  flex-direction: row;
+}
+.deleteAccountText {
+  color: #cdfcf4;
+  font-size: 1.5em;
+}
+#deleteAccountConfirmationBox img {
+  width: 100px;
+}
+#deleteAccountConfirmationBox input {
+  width: 250px;
+}
+#deleteAccountConfirmationButtonContainer button {
+  width: 200px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+#yesDeleteMyAccount {
+  background-color: #931a50;
+  color: #cdfcf4;
+}
+#yesDeleteMyAccount:hover {
+  color: #2c353a;
+}
+#deleteAccountServerResponse {
+  color: #cdfcf4;
+  font-weight: 900;
+  font-size: 1.2em;
 }

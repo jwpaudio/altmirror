@@ -21,6 +21,19 @@ exports.getSignUpSuccessPage = (req, res) => {
   res.render("login", { message: "Signed Up! Please Log In" });
 };
 
+exports.getChangePassSuccessPage = (req, res) => {
+  res.render("login", {
+    message:
+      "Successfully changed password. Please log in with new credentials.",
+  });
+};
+
+exports.getDeleteAccountSuccessPage = (req, res) => {
+  res.render("login", {
+    message: "Successfully deleted account.",
+  });
+};
+
 exports.getForgotPassPage = (req, res) => {
   res.render("forgotpass");
 };

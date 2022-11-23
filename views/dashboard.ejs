@@ -3,6 +3,22 @@
 <title>User Dashboard</title>
 <title>Welcome!</title>
 <body>
+  <script src="/public/js/changepass.js" defer></script>
+  <script src="/public/js/deleteAccount.js" defer></script>
+  <div id="deleteAccountConfirmationContainer">
+    <div id="deleteAccountConfirmationBox">
+      <div id="deleteAccountConfirmationTextContainer">
+        <img src="/public/assets/delete-pass_exlamation.svg" alt="Exlamation Mark">
+        <h1 class="deleteAccountText">Are you sure you want to delete your account? This action cannot be reversed.</h1>
+        <input type="password" id="deleteAccountPassword" placeholder="Current Pasword"/>
+        <div id="deleteAccountConfirmationButtonContainer">
+          <button id="noDontDeleteAccount">Cancel</button>
+          <button id="yesDeleteMyAccount">Yes, delete it!</button>
+        </div>
+        <p id="deleteAccountServerResponse"></p>
+      </div>
+    </div>
+  </div>
   <div id="userTagDiv">
     <label id="userTopTag"><%= locals.user.email %></label>
     <button class="signoutButton">
@@ -29,8 +45,10 @@
   </button>
   <br />
   <div class="accountSettingsHidden" id="accountSettingsDiv">
-    <label id="emailLabel">E-mail</label>
-    <label id="userEmailLabel"><%= locals.user.email %></label>
+    <div id="userEmailBox">
+      <label id="emailLabel">E-mail</label>
+      <label id="userEmailLabel"><%= locals.user.email %></label>
+    </div>
     <br />
     <br />
     <br />
@@ -39,28 +57,42 @@
     <br />
     <br />
     <br />
-    <label>Password</label>
-    <input
-      type="password"
-      id="accountCurrentPassword"
-      placeholder="Current Pasword"
-    />
+    <div id="currentPasswordBox">    
+      <label>Password</label>
+      <input
+        type="password"
+        id="accountCurrentPassword"
+        placeholder="Current Pasword"
+      />
+    </div>
+
     <br />
     <br />
     <br />
-    <input
+    <div id="newPasswordBox">
+      <input
       type="password"
       id="accountChangePassword"
       placeholder="New Pasword"
       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
     />
-    <button type="submit" class="changeButton" id="passwordChangeButton">
+    </div>
+    <div id="changePassButtonBox">
+      <button type="submit" class="changeButton" id="passwordChangeButton">
       Change
     </button>
+  </div>
     <br />
     <br />
     <br />
-    <button type="submit" id="deleteAccountButton">Delete Account</button>
+    <div id="deleteAccountButtonBox"><button type="submit" id="deleteAccountButton">Delete Account</button></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="changePassServerResponse"></div>
   </div>
   <div class="mirrorSettingsHidden" id="mirrorSettingsDiv">
     <%- include('./partials/_mirrorSettings.ejs') %>

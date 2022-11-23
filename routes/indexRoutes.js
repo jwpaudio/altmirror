@@ -8,6 +8,12 @@ router.route("/").get(viewsController.getIndexPage);
 router.route("/login").get(viewsController.getLoginPage);
 router.route("/signup").get(viewsController.getSignUpPage);
 router.route("/signupsuccess").get(viewsController.getSignUpSuccessPage);
+router
+  .route("/changepasssuccess")
+  .get(viewsController.getChangePassSuccessPage);
+router
+  .route("/deleteaccountsuccess")
+  .get(viewsController.getDeleteAccountSuccessPage);
 router.route("/signout").get(userController.signout);
 router.route("/forgotpass").get(viewsController.getForgotPassPage);
 router
