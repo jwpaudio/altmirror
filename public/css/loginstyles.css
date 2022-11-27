@@ -125,7 +125,6 @@ button:focus {
   color: white;
 }
 
-/* Success Page Styles */
 #module-container {
   display: flex;
   flex-direction: column;
@@ -139,4 +138,53 @@ button:focus {
   height: 100vh;
   pointer-events: none;
   user-select: none;
+}
+:root {
+  --split: 0%;
+}
+
+.heading {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  user-select: none;
+}
+
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.8rem, 8vw, 4rem);
+  line-height: 1.4em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.01em;
+  padding: 0.3em 0em;
+  margin-bottom: -3.5em;
+  background-image: linear-gradient(
+    90deg,
+    orange 0%,
+    orange var(--split),
+    #cdfcf4 var(--split)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+h6:before {
+  content: "";
+  background-color: orange;
+  width: 3px;
+  height: 100%;
+  top: 0%;
+  left: var(--split);
+  position: absolute;
+}
+
+h6 span {
+  font-size: 0.3em;
+  line-height: 1em;
+  letter-spacing: 0.02em;
+  display: block;
 }

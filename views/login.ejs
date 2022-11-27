@@ -1,9 +1,21 @@
 <head>
 <link rel="stylesheet" href="/public/css/loginstyles.css" />
 <script src="/public/js/login.js" defer></script>
-<title>Sign In</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </head>
 <body>
+  <script>
+    TweenMax.to(document.documentElement, 4, {
+        "--split": "31%", 
+        repeat:0, 
+        repeatDelay:1,
+        yoyo:true,
+      ease: "power4.inOut"
+      });
+  </script>
+  <div class="heading" id="AM_header">
+    <h6>AltMirror</h6>
+  </div>
     <div id="form-container">
       <form id="login-form">
         <div class="input-container">

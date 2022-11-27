@@ -24,7 +24,6 @@
             return data;
         })
         .then(data => {
-            console.log(data);
             const teamName = data.team.displayName;
             const teamRecord = data.team.record.items[0].summary;
             const teamStanding = data.team.standingSummary;

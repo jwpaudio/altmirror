@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="/public/css/mirrorstyles.css">
 <div class="weather-outer-container <%= locals.weatherName %>">
     <div class="weather-inner-container">
-        <div class="weather-icon">
-            <img src="/public/assets/icons/unknown.png" alt="">
-        </div>
+        <img class="weather-icon" src="/public/assets/icons/unknown.png" alt="">
         <div class="temperature-value">
             <p>- °<span>F</span></p>
         </div>
@@ -52,7 +50,7 @@
             });
     }
     function displayWeather(){
-        iconElement.innerHTML = `<img src="/public/assets/icons/${weather.iconId}.png"/>`;
+        iconElement.src = `/public/assets/icons/${weather.iconId}.png`;
         tempElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
         descElement.innerHTML = weather.description;
         locationElement.innerHTML = `${weather.city}, ${weather.country}`;
