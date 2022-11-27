@@ -9,6 +9,10 @@
   box-sizing: border-box;
   border-radius: 15px;
 }
+#mirrorSettingsBox select {
+  font-size: 0.9vw;
+  margin-left: 10px;
+}
 #mirrorSettingsCol1,
 #mirrorSettingsCol2,
 #mirrorSettingsCol3 {
@@ -23,7 +27,7 @@
   justify-content: center;
 }
 label {
-  font-size: 1.4vw;
+  font-size: 1.3vw;
 }
 
 #saveBar {

@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/public/css/mirrorstyles.css">
+<div class="weather-outer-container <%= locals.weatherName %>">
+    <div class="weather-inner-container">
+        <div class="weather-icon">
+            <img src="/public/assets/icons/unknown.png" alt="">
+        </div>
+        <div class="temperature-value">
+            <p>- °<span>F</span></p>
+        </div>
+        <div class="temperature-description">
+            <p> - </p>
+        </div>
+        <div class="weather-location">
+            <p>-</p>
+        </div>
+    </div>
+</div>
+<script>
+    function set<%= locals.weatherName %>() {
+    const weatherParent = document.querySelector(".<%= locals.weatherName %>")
+    const iconElement = weatherParent.querySelector(".weather-icon");
+    const tempElement = weatherParent.querySelector(".temperature-value p");
+    const descElement = weatherParent.querySelector(".temperature-description p");
+    const locationElement = weatherParent.querySelector(".weather-location p");
+    const weather = {};
+    const key = "82005d27a116c2880c8f0fcb866998a0";
+    weather.temperature = {
+        unit : "fahrenheit"
+    }
+    navigator.geolocation.getCurrentPosition(setPosition);
+    function setPosition(position){
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        getWeather(latitude, longitude);
+    }
+    function getWeather(latitude, longitude){
+        let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+        fetch(api)
+            .then(function(response){
+                let data = response.json();
+                return data;
+            })
+            .then(function(data){
+                weather.temperature.value = Math.floor((data.main.temp - 273) * 9/5) + 32;
+                weather.description = data.weather[0].description;
+                weather.iconId = data.weather[0].icon;
+                weather.city = data.name;
+                weather.country = data.sys.country;
+            })
+            .then(function(){
+                displayWeather();
+            });
+    }
+    function displayWeather(){
+        iconElement.innerHTML = `<img src="/public/assets/icons/${weather.iconId}.png"/>`;
+        tempElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
+        descElement.innerHTML = weather.description;
+        locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+    }
+}
+set<%= locals.weatherName %>();
+setInterval(set<%= locals.weatherName %>, 10000)
+
+</script>

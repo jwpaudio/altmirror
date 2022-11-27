@@ -19,7 +19,7 @@ body {
   color: white;
   border: solid white;
   padding: 20px 40px;
-  width: 22%;
+  width: 12vw;
   margin-top: 1%;
   margin-left: 1%;
 }
@@ -41,8 +41,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   color: #cdfcf4;
-  width: 350px;
-  padding-top: 88px;
+  width: 15vw;
 }
 .cal h2 {
   top: 0;
@@ -57,8 +56,8 @@ body {
   padding-right: 20px;
 }
 .cal table {
-  width: 350px;
-  font-size: 56px;
+  width: 15vw;
+  font-size: 2.5vw;
   border-spacing: 0;
 }
 .cal table thead {
@@ -66,13 +65,13 @@ body {
 }
 .cal table td {
   width: 72px;
-  height: 44px;
-  line-height: 40px;
+  height: 35px;
+  line-height: 20px;
   text-align: left;
   border-left: 1px solid #000;
   vertical-align: top;
   transition: color 300ms ease-in;
-  letter-spacing: -5px;
+  letter-spacing: -3px;
   font-size: 0.6em;
 }
 .cal .monthYear {
@@ -165,6 +164,69 @@ h1:after {
   box-sizing: border-box;
   width: 32vw;
   height: 32vh;
+}
+.weather-outer-container {
+  width: 300px;
+  background-color: none;
+  display: block;
+}
+.weather-inner-container {
+  width: 300px;
+  height: 235px;
+  background-color: #c0fbff;
+  border: solid black;
+  border-radius: 10%;
+}
+.weather-icon {
+  width: 300px;
+  height: 110px;
+}
+.weather-icon img {
+  display: block;
+  margin: 0 auto;
+}
+.temperature-value {
+  width: 300px;
+  height: 60px;
+}
+.temperature-value p {
+  padding: 0;
+  margin: 0;
+  font-size: 4em;
+  text-align: center;
+  color: black;
+}
+.temperature-value span {
+  font-size: 0.5em;
+}
+.temperature-description p {
+  padding: 8px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.4em;
+  color: black;
+}
+.weather-location p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1em;
+  color: black;
+}
+.xmasCountdown {
+  background-image: url(/public/assets/santa-countdown.png);
+  background-repeat: no-repeat;
+  background-size: 275px 197px;
+  border: solid black;
+  height: 197px;
+  width: 275px;
+}
+.xmasCountdownText {
+  text-align: center;
+  padding-left: 130px;
+  font-size: 18px;
+  padding-right: 10px;
+  padding-top: 65px;
 }
 #position1 {
   justify-content: flex-start;

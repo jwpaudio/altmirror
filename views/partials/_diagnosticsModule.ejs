@@ -1,5 +1,16 @@
+<div id="diagModule">
+    <label id="systemDiag">SystemDIAG</label>
+    <br><br>
+    <label id="<%= locals.diagName %>OsVersion"></label>
+    <br>
+    <label id="<%= locals.diagName %>ScreenResolution"></label>
+    <br>
+    <label id="<%= locals.diagName %>BrowserVersion"></label>
+    <br>
+    <label id="<%= locals.diagName %>CookieCheck"></label>
+  </div>
 <script type="text/javascript">
-    function showDiagInfo() {
+    const  <%= locals.diagName %> = () => {
       var screenSize = '';
       var nAgt = navigator.userAgent;
       var nVer = navigator.appVersion;
@@ -15,7 +26,7 @@
           screenSize += '' + width + " x " + height;
       }
       var clientStrings = [
-          {s:'Windows 10', r:/(Windows 10.0|Windows NT 10.0)/},
+          {s:'Windows 10/11', r:/(Windows 10.0|Windows NT 10.0)/},
           {s:'Windows 8.1', r:/(Windows 8.1|Windows NT 6.3)/},
           {s:'Windows 8', r:/(Windows 8|Windows NT 6.2)/},
           {s:'Windows 7', r:/(Windows 7|Windows NT 6.1)/},
@@ -144,24 +155,12 @@
           cookieEnabled = (document.cookie.indexOf('testcookie') != -1) ? true : false;
       }
 
-      document.getElementById("osVersion").innerHTML = "OS: " + os + " " + osVersion;
-        document.getElementById("screenResolution").innerHTML = "Resolution: " + screenSize;
-      document.getElementById("browserVersion").innerHTML = "Browser: " + browser + " " + majorVersion + " (" + version + ")";
-      document.getElementById("cookieCheck").innerHTML = "Cookie enabled? " + cookieEnabled;
+      document.getElementById("<%= locals.diagName %>OsVersion").innerHTML = "OS: " + os + " " + osVersion;
+        document.getElementById("<%= locals.diagName %>ScreenResolution").innerHTML = "Resolution: " + screenSize;
+      document.getElementById("<%= locals.diagName %>BrowserVersion").innerHTML = "Browser: " + browser + " " + majorVersion + " (" + version + ")";
+      document.getElementById("<%= locals.diagName %>CookieCheck").innerHTML = "Cookie enabled? " + cookieEnabled;
     }
     window.addEventListener("load", () => {
-        showDiagInfo()
+        <%= locals.diagName %>()
     })
   </script>
-  <br><br><br>
-  <div id="diagModule">
-    <label id="systemDiag">SystemDIAG</label>
-    <br><br>
-    <label id="osVersion"></label>
-    <br>
-    <label id="screenResolution"></label>
-    <br>
-    <label id="browserVersion"></label>
-    <br>
-    <label id="cookieCheck"></label>
-  </div>

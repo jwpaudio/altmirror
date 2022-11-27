@@ -17,56 +17,123 @@ const mirrorSchema = new mongoose.Schema({
   position1: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position2: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position3: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position4: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position5: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position6: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position7: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
   position8: {
     type: String,
     default: "none",
-    enum: ["clock", "greeting", "none"],
+    enum: [
+      "clock",
+      "greeting",
+      "calendar",
+      "weather",
+      "news",
+      "diagnostics",
+      "xmascountdown",
+      "nflschedule",
+      "none",
+    ],
   },
 });
-
-//Calculated property for the positions taken
-// mirrorSchema.virtual("positionsTaken").get(function () {
-//   const positionsTaken = [];
-//   const modules = this.moduleIDs;
-
-//   modules.forEach(async function (module) {
-//     let thisModule = await Module.findById({ id: module.id });
-//     positionsTaken.push(thisModule.id);
-//   });
-
-//   return positionsTaken;
-// });
 
 module.exports = mongoose.model("Mirror", mirrorSchema);

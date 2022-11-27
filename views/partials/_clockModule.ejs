@@ -6,8 +6,8 @@
         var hours = currentDate.getHours();
         var minutes = currentDate.getMinutes();
         minutes = minutes < 10 ? `0${minutes}` : minutes;
-        clockModule.innerText = `${hours} : ${minutes}`;
-        setTimeout(<%= locals.clockName %>, 1000)
+        clockModule.innerHTML = `<span>${hours} <span class="secondsCounter" id="<%= locals.clockName %>SecondsCounter">:</span> ${minutes}</span>`;
       }
       <%= locals.clockName %>();
+      setInterval(<%= locals.clockName %>, 1000)
     </script>
