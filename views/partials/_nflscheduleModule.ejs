@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/public/css/mirrorstyles.css">
+<div class="teamStatsContainer <%= locals.nflName %>">
+    <div id="teamName"></div>
+    <div id="teamRecord"></div>
+    <div id="teamStanding"></div>
+    <div class="nextGame">Next Game: <br/></div>
+    <div id="nextGame"></div>
+    <div id="nextDate"></div>
+
+
+</div>
+<script>
+    set<%= locals.nflName %> = () => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'c5dec73054msh55a659203902db2p1954cfjsned2b9a28b706',
+            'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+        }
+    };
+    fetch('https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=21', options)
+    .then(response => {
+            let data = response.json();
+            return data;
+        })
+        .then(data => {
+            console.log(data);
+            const teamName = data.team.displayName;
+            const teamRecord = data.team.record.items[0].summary;
+            const teamStanding = data.team.standingSummary;
+            const nextGame = data.team.nextEvent[0].shortName;
+            let nextDate = new Date(data.team.nextEvent[0].date);
+            nextDate = nextDate.toLocaleString("en-US");
+            const parentElement = document.querySelector(".<%= locals.nflName %>")
+            parentElement.querySelector('#teamName').innerText = teamName;
+            parentElement.querySelector('#teamRecord').innerText = teamRecord;
+            parentElement.querySelector('#teamStanding').innerText = teamStanding;
+            const nextGameElement = parentElement.querySelector('.nextGame');
+            nextGameElement.innerText = nextGameElement.innerText + nextGame ;
+            parentElement.querySelector('#nextDate').innerText = nextDate;
+        })
+        .catch(err => console.error(err));
+    }
+    set<%= locals.nflName %>();
+    </script>

@@ -256,6 +256,36 @@ h1:after {
   font-weight: 400;
   color: orange;
 }
+.teamStatsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 15vw;
+  height: 8vw;
+  background-color: #06424d;
+  box-shadow: -5px 3px 14px #c0fbff, 5px -3px 14px #03a9f4;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.4vw;
+  font-family: "Montserrat", sans-serif;
+}
+#teamName,
+#teamRecord,
+#teamStanding,
+.nextGame,
+#nextDate {
+  text-align: center;
+  font-size: 1vw;
+  font-weight: bold;
+  color: #c0fbff;
+}
+.nextGame {
+  color: white;
+  text-align: center;
+  font-variant: small-caps;
+}
 #position1 {
   justify-content: flex-start;
   align-items: flex-start;
