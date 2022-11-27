@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/public/css/mirrorstyles.css">
+<div class="historyContainer <%= locals.historyName %> ">
+    <div style="text-decoration: underline;">Today In History</div>
+    <div id="thisDay"></div>
+    <div id="thisHistory"></div>
+    </div>
+    <script>
+        const set<%= locals.historyName %> = () => {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'today-in-history.p.rapidapi.com',
+                'X-RapidAPI-Key': 'c5dec73054msh55a659203902db2p1954cfjsned2b9a28b706'
+            }
+        };
+        fetch('https://today-in-history.p.rapidapi.com/thisday', options)
+            .then(response => {
+                let data = response.json();
+                return data;
+            })
+            .then(data => {
+                const thisDay = data.article.date;
+                const thisHistory = data.article.title;
+                const parentElement = document.querySelector(".<%= locals.historyName %>")
+                parentElement.querySelector('#thisDay').innerText = thisDay;
+                parentElement.querySelector('#thisHistory').innerText = thisHistory;
+            })
+            .catch(err => console.error(err));
+        }
+        set<%= locals.historyName %>();
+    </script>
