@@ -198,6 +198,6 @@ exports.loginRequired = (req, res, next) => {
   if (req.user) {
     next();
   } else {
-    return res.render("login", { message: "Session Expired" });
+    return res.render("login", { message: "Session Expired", title: "Login" });
   }
 };
