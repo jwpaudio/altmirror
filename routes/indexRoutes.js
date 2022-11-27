@@ -14,7 +14,7 @@ router
 router
   .route("/deleteaccountsuccess")
   .get(viewsController.getDeleteAccountSuccessPage);
-router.route("/signout").get(userController.signout);
+router.route("/signout").get(viewsController.getSignoutPage);
 router.route("/forgotpass").get(viewsController.getForgotPassPage);
 router
   .route("/dashboard")

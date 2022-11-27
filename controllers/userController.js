@@ -100,7 +100,7 @@ exports.signout = (req, res) => {
   res
     .clearCookie("access_token")
     .status(200)
-    .render("login", { message: "Successfully Signed Out" });
+    .json({ status: "success", message: "Successfully signed out." });
 };
 
 //Forgotpass method

@@ -13,6 +13,15 @@ exports.getLoginPage = (req, res) => {
     res.render("login", { title: "Login" });
   }
 };
+
+//Signout method
+exports.getSignoutPage = (req, res) => {
+  res
+    .clearCookie("access_token")
+    .status(200)
+    .render("login", { message: "Successfully Signed Out", title: "Login" });
+};
+
 exports.getSignUpPage = (req, res) => {
   res.render("signup", { title: "Signup" });
 };
