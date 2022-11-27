@@ -97,14 +97,14 @@ body {
   }
 }
 h1 {
-  font-size: 5rem;
+  font-size: 5.2vw;
   font-weight: 1100;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-image: linear-gradient(to left, #03a9f4, #c0fbff);
   margin: 5px;
-  padding: 10px 20px;
-  width: 80%;
+  padding: 10px 10px;
+  width: 17vw;
   text-anchor: center;
   position: relative;
   text-align: center;
