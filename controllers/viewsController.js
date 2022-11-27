@@ -3,7 +3,11 @@ const User = require("../models/userModel");
 const Mirror = require("../models/mirrorModel");
 
 exports.getIndexPage = (req, res) => {
-  res.redirect("/login");
+  if (req.user) {
+    res.redirect("/dashboard");
+  } else {
+    res.render("login", { title: "Login" });
+  }
 };
 
 exports.getLoginPage = (req, res) => {
