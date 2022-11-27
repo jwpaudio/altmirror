@@ -199,17 +199,17 @@ h1:after {
   font-size: 2.5vw;
 }
 .temperature-value span {
-  font-size: 0.5em;
+  font-size: 0.5vw;
 }
 .temperature-description p {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.4vw;
   color: black;
   font-weight: 600;
 }
 .weather-location p {
   text-align: center;
-  font-size: 1em;
+  font-size: 1vw;
   color: black;
   font-weight: 400;
 }
