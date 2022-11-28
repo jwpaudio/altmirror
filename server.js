@@ -5,9 +5,6 @@ const app = require("./app");
 const firebaseConfig = require("./controllers/firebaseController");
 
 const mongoose = require("mongoose");
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
 
 //Starts our server and listens on port 3000
 app.listen(3000, () => {
