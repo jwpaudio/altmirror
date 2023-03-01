@@ -1,0 +1,15 @@
+Project Charter
+1) Project Concept (Describe the business that would be using your technology solution)
+White Mirror is a SaS product that functions as the user interface/OS for smart mirrors - an up-andcoming novelty in home décor and smart home DIY projects. It is developed to be distributed to smart mirror manufacturers, as well as on the “direct-to-consumer” basis. We, as a company, provide the software access and customer support based off different subscription levels, as well as any backend maintenance, updates and user’s data storage and security.
+2) Problem or Market Opportunity Statement (stated in one sentence that describes the problem/opportunity that is being addressed)
+To provide an all-in-one, convenient and compatible smart mirror software solution that the current technology market does not offer.
+3) Technology Solution (Describe the technology solution. Explaining what will be covered and not covered by the project to solve the problem statement)
+Our solution to this market opportunity is White Mirror – a simple and aesthetically attractive user interface operating within a web browser that provides smart mirror functionality (displaying informational modules on a plain black screen), as well as mirror account controls and user-friendly customization console. A simple and attractive interface will add aesthetic value to an idea of having a mirror and will allow to combine a traditional look with
+3
+entertainment elements. The project is developed to be run on a wide spectrum of devices ranging from portable devices to smart TVs and requires no skills to set up or maintain on the user side. User data is securely stored on White Mirror’s servers, and accounts are protected by unique credentials. The modules displayed can be easily added and customized, allowing the community around White Mirror to expand the functionality of the software however they see fit. The back end of the service is hosted on AWS, allowing scalability and increased resistance against large flows of traffic, as well as providing additional layers to user’s personal data. Our solution excludes any sort of manufacturing or design of smart mirror units themselves, as the aim of the project is to offer compatibility for any current AND future hardware implementations in smart mirrors. The team behind White Mirror will be able to provide support to users and resolve technical quickly due to simplicity of the service and lack of local installations on user’s devices.
+4) Project Benefits (Focus on the value proposition of the technology solution. List in
+bullet format the benefits of the technology solution by describing ‘what success looks like’ (when your product does this then it is successful). The benefits are quantifiable.)
+• Reduce customer issues by 50% by offering our guaranteed tech support package
+• Bring your smart mirror product to market 3 times faster by purchasing a ready-to-go software package
+• Implement software on twice as many products since software is built to display on any size screen
+• Reduce amount of time required to have a fully customized mirror screen by 90%
